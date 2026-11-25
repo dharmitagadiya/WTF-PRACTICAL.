@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Central City Library</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Central City Library</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/login" id="loginLink">Login</a>
+      <a href="/logout" id="logoutLink" class="hidden">Logout</a>
+    </nav>
+  </header>
+  <main>
+    <section class="card">
+      <h2>Member Dashboard</h2>
+      <p>Welcome, <strong id="userName"></strong></p>
+      <p>Role: <strong id="userRole"></strong></p>
+      <p>Username: <strong id="userUsername"></strong></p>
+    </section>
+    <section class="card">
+      <h2>Library Resources</h2>
+      <ul>
+        <li>Search the book catalogue</li>
+        <li>View issued books</li>
+        <li>Read e-journals</li>
+        <li>Reserve a study room</li>
+      </ul>
+      <a href="/logout" class="btn">Logout</a>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Central City Library</p>
+  </footer>
+  <script src="/js/script.js"></script>
+</body>
+</html>

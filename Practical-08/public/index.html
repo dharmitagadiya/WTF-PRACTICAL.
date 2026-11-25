@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechMart - Product Management</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>TechMart Electronics - Products</h1>
+  <div id="message" class="msg"></div>
+  <div class="card">
+    <h2 id="formTitle">Add New Product</h2>
+    <form id="productForm">
+      <label>Product ID</label>
+      <input type="text" id="product_id" maxlength="20" required>
+      <label>Product Name</label>
+      <input type="text" id="product_name" maxlength="100" required>
+      <label>Category</label>
+      <input type="text" id="category" maxlength="50" required>
+      <label>Price (₹)</label>
+      <input type="number" id="price" step="0.01" min="0.01" required>
+      <label>Quantity</label>
+      <input type="number" id="quantity" min="0" required>
+      <label>Description</label>
+      <textarea id="description" rows="3"></textarea>
+      <button type="submit" class="primary" id="submitBtn">Add Product</button>
+      <button type="button" class="cancel" id="cancelBtn" style="display:none">Cancel</button>
+    </form>
+  </div>
+  <div class="card scroll">
+    <h2>All Products</h2>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Qty</th><th>Description</th><th>Actions</th></tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+</div>
+<script>
+  const form = document.getElementById("productForm");
+  const fields = ["product_id", "product_name", "category", "price", "quantity", "description"];
+  let editId = null;
+
+  function showMessage(type, lines) {
+    const box = document.getElementById("message");
+    box.className = "msg " + type;
+    box.innerHTML = "";
+    [].concat(lines).forEach((line, i) => {
+      if (i) box.appendChild(document.createElement("br"));
+      box.appendChild(document.createTextNode(line));
+    });
+  }
+
+  async function loadProducts() {
+    const res = await fetch("/api/products");
+    const data = await res.json();
+    const body = document.getElementById("tableBody");
+    body.innerHTML = "";
+    if (!data.success || data.products.length === 0) {
+      const tr = body.insertRow();
+      const td = tr.insertCell();
+      td.colSpan = 7; td.style.textAlign = "center";
+      td.textContent = data.success ? "No products found." : "Could not load products.";
+      return;
+    }
+    data.products.forEach(p => {
+      const tr = body.insertRow();
+      [p.product_id, p.product_name, p.category, Number(p.price).toFixed(2), p.quantity, p.description]
+        .forEach(v => { tr.insertCell().textContent = v ?? ""; });
+      const actions = tr.insertCell();
+      const editBtn = document.createElement("button");
+      editBtn.textContent = "Edit"; editBtn.className = "edit";
+      editBtn.onclick = () => startEdit(p);
+      const delBtn = document.createElement("button");
+      delBtn.textContent = "Delete"; delBtn.className = "del";
+      delBtn.style.marginLeft = "5px";
+      delBtn.onclick = () => deleteProduct(p.product_id);
+      actions.append(editBtn, delBtn);
+    });
+  }
+
+  function startEdit(p) {
+    editId = p.product_id;
+    fields.forEach(f => document.getElementById(f).value = p[f] ?? "");
+    document.getElementById("product_id").readOnly = true;
+    document.getElementById("formTitle").textContent = "Update Product";
+    document.getElementById("submitBtn").textContent = "Update";
+    document.getElementById("cancelBtn").style.display = "inline-block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function resetForm() {
+    editId = null;
+    form.reset();
+    document.getElementById("product_id").readOnly = false;
+    document.getElementById("formTitle").textContent = "Add New Product";
+    document.getElementById("submitBtn").textContent = "Add Product";
+    document.getElementById("cancelBtn").style.display = "none";
+  }
+
+  document.getElementById("cancelBtn").onclick = resetForm;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const payload = {};
+    fields.forEach(f => payload[f] = document.getElementById(f).value);
+    const url = editId ? "/api/products/" + encodeURIComponent(editId) : "/api/products";
+    const method = editId ? "PUT" : "POST";
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (data.success) {
+        showMessage("success", data.message);
+        resetForm();
+        loadProducts();
+      } else {
+        showMessage("error", data.errors);
+      }
+    } catch (err) {
+      showMessage("error", "Cannot reach the server.");
+    }
+  });
+
+  async function deleteProduct(id) {
+    if (!confirm("Are you sure you want to delete this product?")) return;
+    try {
+      const res = await fetch("/api/products/" + encodeURIComponent(id), { method: "DELETE" });
+      const data = await res.json();
+      if (data.success) { showMessage("success", data.message); loadProducts(); }
+      else showMessage("error", data.errors);
+    } catch (err) {
+      showMessage("error", "Cannot reach the server.");
+    }
+  }
+
+  loadProducts();
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Central City Library</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Central City Library</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/login" id="loginLink">Login</a>
+      <a href="/logout" id="logoutLink" class="hidden">Logout</a>
+    </nav>
+  </header>
+  <main>
+    <section class="card small">
+      <h2>Member Login</h2>
+      <p id="message" class="message hidden"></p>
+      <form action="/login" method="POST">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Central City Library</p>
+  </footer>
+  <script src="/js/script.js"></script>
+</body>
+</html>
