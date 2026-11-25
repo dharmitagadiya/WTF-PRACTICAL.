@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8fff5;
+    margin: 0;
+}
+/* Hero Section */
+.hero {
+    background: linear-gradient(
+        rgba(0, 100, 0, 0.75),
+        rgba(0, 80, 0, 0.75)
+    ),
+    url("https://images.unsplash.com/photo-1547592180-85f173990554?w=1200");
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px !important;
+}
+/* Categories */
+.category {
+    background: #e8f5e9;
+    padding: 25px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+.category:hover {
+    background: #c8e6c9;
+    transform: translateY(-5px);
+}
+.food-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+/* Food Cards */
+.food-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px #aaa;
+}
+.food-card img {
+    height: 220px;
+    object-fit: cover;
+}
+/* Offer */
+.offer {
+    background-color: #dcedc8;
+    color: darkgreen;
+}
+/* Footer */
+footer {
+    margin-top: 30px;
+}
+/* Mobile Responsive */
+@media (max-width: 576px) {
+    .hero {
+        padding: 65px 15px !important;
+    }
+    .hero h1 {
+        font-size: 30px;
+    }
+    .food-card img {
+        height: 190px;
+    }
+}

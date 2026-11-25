@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickShop Online Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>QuickShop</h1>
+        <p>Online Shopping Marketplace</p>
+    </header>
+    <!-- Search Products -->
+    <section class="search-section">
+        <h2>Search Products</h2>
+        <input type="text" id="searchInput"
+               placeholder="Search products...">
+        <button onclick="searchProducts()">Search</button>
+        <button onclick="getProducts()">Show All</button>
+    </section>
+    <!-- Product List -->
+    <section>
+        <h2>Available Products</h2>
+        <p id="message"></p>
+        <div id="productList" class="product-container"></div>
+    </section>
+    <!-- Add Product -->
+    <section class="add-section">
+        <h2>Add New Product</h2>
+        <form id="productForm">
+            <input type="text" id="productTitle"
+                   placeholder="Product Name" required>
+            <input type="number" id="productPrice"
+                   placeholder="Product Price" min="1" required>
+            <button type="submit">Add Product</button>
+        </form>
+    </section>
+    <footer>
+        <p>© 2026 QuickShop. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

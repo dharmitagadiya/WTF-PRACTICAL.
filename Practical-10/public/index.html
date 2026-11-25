@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FinSecure Security Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>FinSecure Solutions</h1>
+    <h3>Employee Security Portal</h3>
+    <h2>Employee Registration</h2>
+    <form id="registerForm">
+        <input type="text" id="name"
+        placeholder="Enter Name" required>
+        <input type="email" id="email"
+        placeholder="Enter Email" required>
+        <input type="password" id="password"
+        placeholder="Enter Password" required>
+        <input type="password" id="confirmPassword"
+        placeholder="Confirm Password" required>
+        <button type="submit">Register</button>
+    </form>
+    <hr>
+    <h2>Employee Login</h2>
+    <form id="loginForm">
+        <input type="email" id="loginEmail"
+        placeholder="Enter Email" required>
+        <input type="password" id="loginPassword"
+        placeholder="Enter Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <hr>
+    <h2>XSS Prevention Demo</h2>
+    <input type="text" id="userInput"
+    placeholder="Enter text">
+    <button type="button" onclick="testXSS()">
+        Test XSS
+    </button>
+    <p id="output"></p>
+    <p id="message"></p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
