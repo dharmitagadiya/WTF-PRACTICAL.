@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5dc;
+    color: #333;
+}
+header {
+    background-color: #52796f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+nav {
+    background-color: #354f52;
+    padding: 15px;
+    text-align: center;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-weight: bold;
+}
+nav a:hover {
+    color: #d8e2dc;
+}
+section {
+    padding: 20px;
+    text-align: center;
+}
+#home {
+    background-color: #e9edc9;
+}
+input, textarea, select {
+    display: block;
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.product {
+    background-color: white;
+    width: 220px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px #ccc;
+    transition: transform 0.2s;
+}
+.product-img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    cursor: pointer;
+}
+button {
+    background-color: #52796f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #354f52;
+}
+#preview {
+    max-width: 250px;
+    width: 80%;
+    border: 2px solid #52796f;
+    border-radius: 8px;
+}
+#cartList {
+    display: inline-block;
+    text-align: left;
+}
+footer {
+    background-color: #354f52;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.dark {
+    background-color: #222;
+    color: white;
+}
+.dark #home {
+    background-color: #333;
+}
+.dark .product {
+    background-color: #444;
+    color: white;
+}
+.dark input,
+.dark textarea,
+.dark select {
+    background-color: #333;
+    color: white;
+}
+@media (max-width: 600px) {
+    nav a {
+        display: inline-block;
+        margin: 8px;
+    }
+    .product {
+        width: 80%;
+    }
+}

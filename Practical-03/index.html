@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secure Bank Ltd - Online Banking Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Secure Bank Ltd.</h1>
+<p>Online Banking Portal - Basic Financial Calculators</p>
+<hr>
+<div class="box">
+    <h2>1. Loan Eligibility Checker</h2>
+    <label>Your Age:</label>
+    <input type="number" id="age" placeholder="e.g. 25"><br>
+    <label>Monthly Income (Rs):</label>
+    <input type="number" id="income" placeholder="e.g. 30000"><br>
+    <label>Requested Monthly EMI (Rs):</label>
+    <input type="number" id="reqEmi" placeholder="e.g. 8000"><br>
+    <label>Credit Score (300 - 900):</label>
+    <input type="number" id="creditScore" placeholder="e.g. 720"><br>
+    <button onclick="checkEligibility()">Check Eligibility</button>
+    <p id="eligibilityResult" class="result"></p>
+</div>
+<div class="box">
+    <h2>2. EMI Calculator</h2>
+    <label>Loan Amount (Rs):</label>
+    <input type="number" id="loanAmount" placeholder="e.g. 500000"><br>
+    <label>Annual Interest Rate (%):</label>
+    <input type="number" id="rateOfInterest" placeholder="e.g. 9.5"><br>
+    <label>Loan Tenure (Years):</label>
+    <input type="number" id="tenureYears" placeholder="e.g. 5"><br>
+    <button onclick="calculateEmi()">Calculate EMI</button>
+    <p id="emiResult" class="result"></p>
+</div>
+<div class="box">
+    <h2>3. Interest Calculator</h2>
+    <label>Principal Amount (Rs):</label>
+    <input type="number" id="principal" placeholder="e.g. 10000"><br>
+    <label>Rate of Interest (% per year):</label>
+    <input type="number" id="rate" placeholder="e.g. 6"><br>
+    <label>Time Period (Years):</label>
+    <input type="number" id="time" placeholder="e.g. 3"><br>
+    <label>Interest Type:</label>
+    <select id="interestType">
+        <option value="simple">Simple Interest</option>
+        <option value="compound">Compound Interest</option>
+    </select><br>
+    <button onclick="calculateInterest()">Calculate Interest</button>
+    <p id="interestResult" class="result"></p>
+</div>
+<div class="box">
+    <h2>4. Yearly Compound Interest Table</h2>
+    <label>Principal Amount (Rs):</label>
+    <input type="number" id="tablePrincipal" placeholder="e.g. 10000"><br>
+    <label>Annual Rate (%):</label>
+    <input type="number" id="tableRate" placeholder="e.g. 7"><br>
+    <label>Number of Years:</label>
+    <input type="number" id="tableYears" placeholder="e.g. 5"><br>
+    <button onclick="generateInterestTable()">Generate Table</button>
+    <table id="interestTable"></table>
+</div>
+<div class="box">
+    <h2>5. Average Deposit Calculator</h2>
+    <p>Enter your deposit amounts one by one. Enter a negative number to stop.</p>
+    <button onclick="calculateAverageDeposit()">Start Entering Deposits</button>
+    <p id="averageResult" class="result"></p>
+</div>
+<div class="box">
+    <h2>6. Submit</h2>
+    <button onclick="scopeDemo()">submit</button>
+    <p id="scopeResult" class="result"></p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
