@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WanderGo Travels</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ================= PROMO BANNER ================= -->
+  <div class="promo-bar">
+    <span id="promoText">Welcome to WanderGo Travels!</span>
+    <span class="countdown">Offer ends in: <strong id="countdown">10:00</strong></span>
+  </div>
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <h1 class="logo">WanderGo Travels</h1>
+    <nav class="nav">
+      <a href="#welcome">Home</a>
+      <a href="#packages">Packages</a>
+      <a href="#selected">My Choice</a>
+    </nav>
+    <button id="themeBtn" class="btn">Dark Mode</button>
+  </header>
+  <!-- ================= WELCOME SECTION ================= -->
+  <section id="welcome" class="welcome">
+    <h2 id="greeting">Explore the World with Us</h2>
+    <p>Find your dream destination and plan your next trip.</p>
+    <div id="nameBox" class="name-box">
+      <input type="text" id="nameInput" placeholder="Enter your name">
+      <button id="saveNameBtn" class="btn">Save Name</button>
+    </div>
+    <p class="session-info">
+      Page views in this session: <strong id="viewCount">0</strong> |
+      Session started at: <strong id="sessionTime">-</strong>
+    </p>
+  </section>
+  <!-- ================= TOUR PACKAGES ================= -->
+  <section id="packages" class="section">
+    <h2>Tour Packages</h2>
+    <p id="loading" class="loading">Loading packages, please wait...</p>
+    <div id="errorBox" class="error hidden">
+      <p id="errorText"></p>
+      <button id="retryBtn" class="btn">Try Again</button>
+    </div>
+    <div id="packageContainer" class="grid"></div>
+  </section>
+  <!-- ================= SELECTED DESTINATION ================= -->
+  <section id="selected" class="section selected-section">
+    <h2>Your Selected Destination</h2>
+    <p id="selectedText">You have not selected any destination yet.</p>
+    <button id="enquiryBtn" class="btn">Send Booking Enquiry</button>
+    <button id="clearBtn" class="btn btn-light">Clear Selection</button>
+    <ul id="enquirySteps" class="steps"></ul>
+  </section>
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <p>&copy; 2026 WanderGo Travels Pvt. Ltd. | Made by a first-year student</p>
+  </footer>
+  <!-- ================= POPUP OFFER ================= -->
+  <div id="popup" class="popup hidden">
+    <div class="popup-box">
+      <h3>Special Offer!</h3>
+      <p>Book any package today and get 15% OFF.</p>
+      <button id="closePopup" class="btn">Close</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

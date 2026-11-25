@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifetime Hospital Registration</title>
+    <link rel="stylesheet" href="style5.css">
+    <script src="script5.js" defer></script>
+</head>
+<body>
+    <form id="patientForm" novalidate>
+        <h2>Lifetime Hospital</h2>
+        <h3>Patient Registration Form</h3>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Enter full name"
+               maxlength="50" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter email address"
+               required>
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" placeholder="10-digit mobile number"
+               maxlength="10" required>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" min="1900-01-01" required>
+        <label>Gender:</label>
+        <div class="options">
+            <input type="radio" name="gender" value="Male" required> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+        </div>
+        <label for="blood">Blood Group:</label>
+        <select id="blood" required>
+            <option value="">Select blood group</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>O+</option>
+            <option>O-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+        </select>
+        <label for="department">Department:</label>
+        <select id="department" required>
+            <option value="">Select department</option>
+            <option>General Medicine</option>
+            <option>Cardiology</option>
+            <option>Orthopedics</option>
+            <option>Dermatology</option>
+            <option>Pediatrics</option>
+        </select>
+        <label for="address">Address:</label>
+        <textarea id="address" rows="3" maxlength="200"
+                  placeholder="Enter your address" required></textarea>
+        <label for="password">Password:</label>
+        <input type="password" id="password"
+               placeholder="Minimum 8 characters" required>
+        <label for="confirm">Confirm Password:</label>
+        <input type="password" id="confirm"
+               placeholder="Re-enter password" required>
+        <label for="report">Upload Medical Report (PDF):</label>
+        <input type="file" id="report" accept=".pdf">
+        <div class="options">
+            <input type="checkbox" id="consent" required>
+            I confirm that the information is correct.
+        </div>
+        <button type="submit">Register</button>
+        <p id="message" role="status" aria-live="polite"></p>
+    </form>
+</body>
+</html>

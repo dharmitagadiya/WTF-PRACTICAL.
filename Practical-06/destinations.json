@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Goa Beach Escape",
+    "location": "Goa, India",
+    "days": 4,
+    "price": 15999,
+    "description": "Relax on golden beaches, enjoy water sports and local seafood.",
+    "image": "https://picsum.photos/seed/goa/400/250"
+  },
+  {
+    "id": 2,
+    "name": "Manali Snow Adventure",
+    "location": "Himachal Pradesh, India",
+    "days": 5,
+    "price": 18999,
+    "description": "Snow-covered mountains, river rafting and paragliding.",
+    "image": "https://picsum.photos/seed/manali/400/250"
+  },
+  {
+    "id": 3,
+    "name": "Jaipur Royal Tour",
+    "location": "Rajasthan, India",
+    "days": 3,
+    "price": 12499,
+    "description": "Visit grand palaces, forts and colourful bazaars of the Pink City.",
+    "image": "https://picsum.photos/seed/jaipur/400/250"
+  },
+  {
+    "id": 4,
+    "name": "Kerala Backwaters",
+    "location": "Kerala, India",
+    "days": 5,
+    "price": 20999,
+    "description": "Stay in a houseboat and enjoy calm backwaters and green views.",
+    "image": "https://picsum.photos/seed/kerala/400/250"
+  },
+  {
+    "id": 5,
+    "name": "Dubai City Break",
+    "location": "Dubai, UAE",
+    "days": 4,
+    "price": 54999,
+    "description": "Tall skyscrapers, desert safari and shopping festivals.",
+    "image": "https://picsum.photos/seed/dubai/400/250"
+  },
+  {
+    "id": 6,
+    "name": "Bali Island Holiday",
+    "location": "Bali, Indonesia",
+    "days": 6,
+    "price": 48999,
+    "description": "Temples, rice fields, beaches and peaceful island life.",
+    "image": "https://picsum.photos/seed/bali/400/250"
+  }
+]
